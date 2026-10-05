@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudGuard | Cloud Security & Governance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient a1"></div><div class="ambient a2"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="cloudmark">☁</div>
+      <div><h1>CLOUD<span>GUARD</span></h1><p>Cloud Security & Governance</p></div>
+    </div>
+    <div class="status"><i></i> SYSTEM SECURE</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">SECURITY OPERATIONS • ACADEMIC SIMULATOR</div>
+        <h2>Secure the cloud.<br><span>Govern the access.</span></h2>
+        <p>Interactive demonstration of IAM, least privilege, storage security and audit governance.</p>
+      </div>
+      <div class="scoreCard">
+        <div class="scoreLabel">GOVERNANCE SCORE</div>
+        <div><strong id="score">62</strong><small>/100</small></div>
+        <div class="meter"><span id="meter"></span></div>
+        <div class="scoreState" id="scoreState">Needs attention</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>🔐</span><div><small>IAM POLICY</small><b id="iamStat">REVIEW</b></div></div>
+      <div class="stat"><span>🗄</span><div><small>STORAGE</small><b id="storageStat">PUBLIC</b></div></div>
+      <div class="stat"><span>📋</span><div><small>AUDIT LOG</small><b>ACTIVE</b></div></div>
+      <div class="stat"><span>⚠</span><div><small>ACTIVE RISKS</small><b id="riskStat">01</b></div></div>
+    </section>
+
+    <div class="sectionTitle"><span>01</span> ACCESS CONTROL</div>
+    <section class="grid two">
+      <div class="panel">
+        <div class="panelHead"><div><span class="icon blue">🔐</span><div><h3>IAM & Least Privilege</h3><p>Test whether a role has permission to perform an action.</p></div></div><span class="tag">IAM</span></div>
+        <div class="formGrid">
+          <label>ROLE<select id="role"><option>Viewer</option><option>Developer</option><option>Admin</option></select></label>
+          <label>RESOURCE<select id="resource"><option>Customer Database</option><option>Storage Bucket</option><option>Virtual Machine</option></select></label>
+          <label>ACTION<select id="action"><option>Read</option><option>Write</option><option>Delete</option></select></label>
+        </div>
+        <button onclick="testAccess()">TEST ACCESS <span>→</span></button>
+        <div id="accessResult" class="result neutral">Run a permission check to see the policy decision.</div>
+      </div>
+
+      <div class="panel">
+        <div class="panelHead"><div><span class="icon amber">🗄</span><div><h3>Storage Security</h3><p>Simulate a public cloud-storage misconfiguration.</p></div></div><span class="tag warn">RISK</span></div>
+        <div class="bucket">
+          <div><span class="folder">▣</span><div><b>customer-data-bucket</b><small>Cloud Object Storage</small></div></div>
+          <button id="bucketBtn" class="bucketBtn" onclick="toggleBucket()">PUBLIC</button>
+        </div>
+        <div id="bucketStatus" class="result danger">⚠ Public access may expose sensitive files.</div>
+        <button class="secureBtn" onclick="secureBucket()">APPLY SECURE POLICY <span>→</span></button>
+      </div>
+    </section>
+
+    <div class="sectionTitle"><span>02</span> SECURITY MONITORING</div>
+    <section class="panel">
+      <div class="panelHead"><div><span class="icon green">◉</span><div><h3>Audit Activity</h3><p>Security events recorded by the governance simulator.</p></div></div><span class="tag greenTag">LIVE</span></div>
+      <div class="log" id="log">
+        <div><time>10:00</time><span class="dot ok"></span><span>System initialized</span><em>INFO</em></div>
+        <div><time>10:01</time><span class="dot ok"></span><span>Audit logging enabled</span><em>INFO</em></div>
+      </div>
+    </section>
+
+    <div class="sectionTitle"><span>03</span> SHARED RESPONSIBILITY</div>
+    <section class="panel responsibility">
+      <div class="model iaas"><b>IaaS</b><strong>Customer responsibility ↑</strong><p>OS • Network • Applications • Data</p></div>
+      <div class="arrow">→</div>
+      <div class="model"><b>PaaS</b><strong>Shared responsibility</strong><p>Applications • Data • Access</p></div>
+      <div class="arrow">→</div>
+      <div class="model saas"><b>SaaS</b><strong>Provider responsibility ↑</strong><p>Infrastructure • Runtime • Platform</p></div>
+    </section>
+
+    <div class="sectionTitle"><span>04</span> THREAT → CONTROL</div>
+    <section class="panel mapping">
+      <div><b>Excessive permissions</b><span>→</span><strong>IAM + Least Privilege</strong></div>
+      <div><b>Public storage</b><span>→</span><strong>Private bucket policy</strong></div>
+      <div><b>Unauthorized activity</b><span>→</span><strong>Audit logging</strong></div>
+    </section>
+  </main>
+
+  <footer>CloudGuard • Cloud Security & Governance Simulator <span>Built for academic demonstration</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
